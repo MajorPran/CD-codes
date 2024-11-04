@@ -1,0 +1,64 @@
+Step 1: Create a c program file
+#include <stdio.h>
+#include <string.h>
+
+void generateTargetCode(char op[], char arg1[], char arg2[], char result[]) {
+    if (strcmp(op, "+") == 0) {
+        printf("MOV R0, %s\n", arg1);
+        printf("ADD R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else if (strcmp(op, "-") == 0) {
+        printf("MOV R0, %s\n", arg1);
+        printf("SUB R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else if (strcmp(op, "*") == 0) {
+        printf("MOV R0, %s\n", arg1);
+        printf("MUL R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else if (strcmp(op, "/") == 0) {
+        printf("MOV R0, %s\n", arg1);
+        printf("DIV R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else if (strcmp(op, "=") == 0) {
+        printf("MOV %s, %s\n", result, arg1);
+    }
+}
+
+int main() {
+    // Intermediate code as an array of strings
+    const char *intermediate_code[] = {
+        "t1 = b + c",
+        "t2 = t1 * d",
+        "a = t2 - e"
+    };
+    int num_instructions = sizeof(intermediate_code) / sizeof(intermediate_code[0]);
+
+    printf("Generated Target Code:\n\n");
+
+    // Parse each line and generate target code
+    for (int i = 0; i < num_instructions; i++) {
+        char result[10], arg1[10], op[5], arg2[10];
+        
+        // Parse the intermediate code line
+        sscanf(intermediate_code[i], "%s = %s %s %s", result, arg1, op, arg2);
+        
+        // Generate target code for the parsed instruction
+        generateTargetCode(op, arg1, arg2, result);
+    }
+
+    return 0;
+}
+
+
+Step 2: compile using foll command
+gcc target_code_generator.c -o target_code_generator
+
+Step 3: Run the target code
+./target_code_generator
+
+
+**DONT FORGET TO CHANGE THE NAME IN THE COMMANDS AS PER YOUR SAVED FILE**

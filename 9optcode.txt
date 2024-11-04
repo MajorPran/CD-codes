@@ -1,0 +1,22 @@
+Step 1: Create a c program file
+#include <stdio.h>
+
+int calculate(int x) {
+    int result = x * (2 + 3) + (5 - 3) * 4;  // Compiler will optimize constant expressions
+    return result;
+}
+
+int main() {
+    int x = 10;
+    int result = calculate(x);
+    printf("Result: %d\n", result);
+    return 0;
+}
+
+Step 2: Optimize code( on terminal)
+gcc -O3 calculator.c -o calculator
+
+Step 3: Run optimised code
+./calculator
+
+**DONT FORGET TO CHANGE THE NAME IN THE COMMANDS AS PER YOUR SAVED FILE**
