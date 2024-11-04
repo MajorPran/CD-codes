@@ -1,5 +1,5 @@
 # CD-codes
-To implement the codes that are in Lex, they need to run the following command
+To implement the codes that are in Lex, you need to run the following command
 Step 1: Install Lex
 sudo apt update
 sudo apt install flex gcc
