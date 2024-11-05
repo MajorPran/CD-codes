@@ -14,9 +14,18 @@ int main() {
 }
 
 Step 2: Optimize code( on terminal)
-gcc -O3 calculator.c -o calculator
+gcc -O3 program.c -o program
 
 Step 3: Run optimised code
 ./calculator
+
+Step 4: To view optimised code
+gcc -O3 -S program.c -o program.s
+
+then do 
+gedit program.s
+or 
+nano program.s 
+to view optimised assembly code
 
 **DONT FORGET TO CHANGE THE NAME IN THE COMMANDS AS PER YOUR SAVED FILE**
